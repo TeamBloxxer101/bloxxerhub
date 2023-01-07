@@ -77,18 +77,7 @@
 
 		-- Sliders
 		
-		LocalPlayerTab:AddSlider({
-			Name = "WalkSpeed",
-			Min = 16,
-			Max = 1000,
-			Default = 16,
-			Color = Color3.fromRGB(255,255,255),
-			Increment = 1,
-			ValueName = "Walkspeed",
-			Callback = function(Value)
-				game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = Value
-			end    
-		})
+		LocalPlayerTab:AddLabel("Walkspeed is disabled due to anticheat detection.")
 		
 		LocalPlayerTab:AddSlider({
 			Name = "Jump Power",
