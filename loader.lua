@@ -99,12 +99,12 @@ Callback = function()
 	  if _G.KeyInput == _G.NormalKey then
 		CorrectKeyNormalNotification()
 		destroylogin()
-		wait(3.2)
+		wait(1.2)
 		MakeHub()
 	else if _G.KeyInput == _G.BloxxerKey then
 		CorrectKeyBloxxerNotification()
 		destroylogin()
-		wait(3.2)
+		wait(1.2)
 		MakeHub()
 		else if _G.KeyInput == _G.RacistKey then
 			Player:Kick("stop being racist you nigger")
