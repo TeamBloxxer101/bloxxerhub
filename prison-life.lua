@@ -1,6 +1,5 @@
-if game.PlaceId == 155615604 then
-    local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
-    local PrisonLifeHub = OrionLib:MakeWindow({Name = "BloxxerHub | Prison Life", HidePremium = false, IntroText = "Team Bloxxer", IntroIcon = "rbxassetid://12022925290", Icon = "rbxassetid://12022925290", SaveConfig = true, ConfigFolder = "BloxxerConfig"})
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+local PrisonLifeHub = OrionLib:MakeWindow({Name = "BloxxerHub | Prison Life", HidePremium = false, IntroText = "Team Bloxxer", IntroIcon = "rbxassetid://12022925290", Icon = "rbxassetid://12022925290", SaveConfig = true, ConfigFolder = "BloxxerConfig"})
     
     
     OrionLib:MakeNotification({
@@ -155,4 +154,3 @@ if game.PlaceId == 155615604 then
 
     -- TextBox
     OrionLib:Init()
-end
