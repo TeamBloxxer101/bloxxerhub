@@ -36,6 +36,8 @@ function MakeHub()
 		loadstring(game:HttpGet('https://raw.githubusercontent.com/TeamBloxxer101/bloxxerhub/main/universal.lua'))()
 	end
 end
+end
+
 function CorrectKeyBloxxerNotification()
 OrionLib:MakeNotification({
 	Name = "Correct Key!",
@@ -114,4 +116,3 @@ end
 end		
 })
 OrionLib:Init()
-end
