@@ -32,9 +32,12 @@ function MakeHub()
 		loadstring(game:HttpGet('https://raw.githubusercontent.com/TeamBloxxer101/bloxxerhub/main/prison-life.lua'))()
 	else if game.PlaceId == 2788229376 then
 		loadstring(game:HttpGet('https://raw.githubusercontent.com/TeamBloxxer101/bloxxerhub/main/da-hood.lua'))()
+	else if game.PlaceId == 662417684 then
+		loadstring(game:HttpGet('https://raw.githubusercontent.com/TeamBloxxer101/bloxxerhub/main/lucky-block-battlegrounds.lua'))()
 	else
 		loadstring(game:HttpGet('https://raw.githubusercontent.com/TeamBloxxer101/bloxxerhub/main/universal.lua'))()
 	end
+end
 end
 end
 

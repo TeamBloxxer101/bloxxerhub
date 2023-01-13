@@ -152,5 +152,19 @@ local PrisonLifeHub = OrionLib:MakeWindow({Name = "BloxxerHub | Prison Life", Hi
         end    
     })
 
+    function discordnotification()
+        syn.write_clipboard("https://discord.gg/Puy6SYbDC6")
+        
+            OrionLib:MakeNotification({
+                Name = "Join the discord!",
+                Content = "Team Bloxxer request that you join the official Team Bloxxer Discord Server! It has been copied to your clipboard.",
+                Image = "rbxassetid://12022925290",
+                Time = 6
+            })
+        end
+
+        wait(5)
+        discordnotification()
+
     -- TextBox
     OrionLib:Init()
