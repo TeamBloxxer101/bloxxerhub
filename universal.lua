@@ -21,9 +21,16 @@ OrionLib:MakeNotification({
     Time = 6
 })
 
+    -- Values
+    
+    _G.noclipValue = true
+
+
+
+-- Functions
 
 function discordnotification()
-    syn.write_clipboard("https://discord.gg/Puy6SYbDC6")
+    setclipboard("https://discord.gg/Puy6SYbDC6")
     
         OrionLib:MakeNotification({
             Name = "Join the discord!",
@@ -32,6 +39,24 @@ function discordnotification()
             Time = 6
         })
     end
+
+
+function noclipFunction()
+    game:GetService("RunService").Stepped:Connect(function()
+        if _G.noclipValue == true then
+            pcall(function()
+                game.Players.LocalPlayer.Character:FindFirstChild("Head").CanCollide = false
+                game.Players.LocalPlayer.Character:FindFirstChild("Torso").CanCollide = false
+                if _G.noclipValue == false then
+                    pcall(function()
+                        game.Players.LocalPlayer.Character:FindFirstChild("Head").CanCollide = true
+                        game.Players.LocalPlayer.Character:FindFirstChild("Torso").CanCollide = true
+                    end)
+                end
+            end)
+        end
+    end)
+end
 
 
 -- Tabs

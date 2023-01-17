@@ -22,6 +22,20 @@ local Tab3 = Window:MakeTab({
 })
 
 
+
+function discordnotification()
+	setclipboard("https://discord.gg/Puy6SYbDC6")
+	
+		OrionLib:MakeNotification({
+			Name = "Join the discord!",
+			Content = "Team Bloxxer request that you join the official Team Bloxxer Discord Server! It has been copied to your clipboard.",
+			Image = "rbxassetid://12022925290",
+			Time = 6
+		})
+	end
+
+
+
 OrionLib:MakeNotification({
     Name = "Welcome!",
     Content = "Welcome to Bloxxer Hub! Thank you for using this script. Regards by: bloxxer101101",
@@ -343,6 +357,7 @@ Tab3:AddBind({
 	end    
 })
 
+OrionLib:Init()
+
 wait(5)
 discordnotification()
-OrionLib:Init()

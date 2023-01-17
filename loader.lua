@@ -5,7 +5,7 @@ local KeyWindow = OrionLib:MakeWindow({Name = "Team Bloxxer Key System", HidePre
 
 
 function discordnotification()
-syn.write_clipboard("https://discord.gg/Puy6SYbDC6")
+setclipboard("https://discord.gg/Puy6SYbDC6")
 
 	OrionLib:MakeNotification({
 		Name = "Join the discord!",

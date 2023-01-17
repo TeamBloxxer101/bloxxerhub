@@ -13,15 +13,6 @@
 				Image = "rbxassetid://12022925290",
 				Time = 5
 			})
-
-			function swagmodekeybind()
-				OrionLib:MakeNotification({
-					Name = "SwagMode Alert",
-					Content = "The Keybind to toggle Swagmode will be V (This is if you want to use Swagmode and Faded)",
-					Image = "rbxassetid://12022925290",
-					Time = 5
-				})
-			end
 			
 		end
 		
@@ -38,17 +29,6 @@
 			Image = "rbxassetid://12022925290",
 			Time = 6
 		})
-
-		function discordnotification()
-			syn.write_clipboard("https://discord.gg/Puy6SYbDC6")
-			
-				OrionLib:MakeNotification({
-					Name = "Join the discord!",
-					Content = "Team Bloxxer request that you join the official Team Bloxxer Discord Server! It has been copied to your clipboard.",
-					Image = "rbxassetid://12022925290",
-					Time = 6
-				})
-			end
 
 		
 		
@@ -154,11 +134,21 @@
 		})
 		
 		-- ScriptsTab
+		function swagmodekeybind()
+			OrionLib:MakeNotification({
+				Name = "SwagMode Alert",
+				Content = "The Keybind to toggle Swagmode will be V (This is if you want to use Swagmode and Faded)",
+				Image = "rbxassetid://12022925290",
+				Time = 5
+			})
+		end
+
 
 		ScriptsTab:AddButton({
 			Name = "Swagmode",
 			Callback = function()
 				loadstring(game:HttpGet('https://raw.githubusercontent.com/lerkermer/lua-projects/master/SwagModeV002'))()
+				swagmodekeybind()
 			  end    
 		})
 
@@ -167,9 +157,21 @@
 			Callback = function()
 				_G.Toggles = "Z" -- You can put any keybind
 				loadstring(game:HttpGet("https://raw.githubusercontent.com/NighterEpic/Faded/main/YesEpic", true))()
+				fadedkeybind()
 			  end    
 		})
 
+
+		function discordnotification()
+			setclipboard("https://discord.gg/Puy6SYbDC6")
+			
+				OrionLib:MakeNotification({
+					Name = "Join the discord!",
+					Content = "Team Bloxxer request that you join the official Team Bloxxer Discord Server! It has been copied to your clipboard.",
+					Image = "rbxassetid://12022925290",
+					Time = 6
+				})
+			end
 
 		wait(5)
 		discordnotification()
