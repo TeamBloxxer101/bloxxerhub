@@ -1,4 +1,9 @@
-    local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+	local ReplicatedStorage = game:GetService("ReplicatedStorage")
+	local Spawn = game.Players.LocalPlayer.SpawnCFrame
+	local P = game:GetService'Players'
+	local HRP = P.LocalPlayer.Character.HumanoidRootPart
+	local Name = game.Players.LocalPlayer.Name
+	local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
 	local DaHoodHub = OrionLib:MakeWindow({Name = "BloxxerHub | Da Hood", HidePremium = false, IntroText = "Team Bloxxer", IntroIcon = "rbxassetid://12022925290", Icon = "rbxassetid://12022925290", SaveConfig = true, ConfigFolder = "BloxxerConfig"})
 		
 		function fadedkeybind()
@@ -86,34 +91,79 @@
 			PremiumOnly = false
 		})
 
-		-- Sliders
+		-- LocalPlayerTab
 		
 		LocalPlayerTab:AddLabel("Walkspeed is disabled due to anticheat detection.")
 		
 		LocalPlayerTab:AddSlider({
-			Name = "Jump Power",
-			Min = 50,
-			Max = 1000,
+			Name = "JumpPower",
+			Min = 0,
+			Max = 500,
 			Default = 50,
-			Color = Color3.fromRGB(255,255,255),
 			Increment = 1,
-			ValueName = "Jump Power",
+			ValueName = "JumpPower",
+			Color = Color3.fromRGB(31, 255, 23),
 			Callback = function(Value)
-				game.Players.LocalPlayer.Character.Humanoid.JumpPower = Value
+				game:GetService('Workspace')[Name].Humanoid.JumpPower = Value
+			end 
+		})
+		
+		LocalPlayerTab:AddSlider({
+			Name = "HipHeight",
+			Min = 0,
+			Max = 500,
+			Default = 0,
+			Increment = 1,
+			ValueName = "HipHeight",
+			Color = Color3.fromRGB(253, 17, 17),
+			Callback = function(Value)
+				game:GetService('Workspace')[Name].Humanoid.HipHeight = Value
+			end
+		})
+		LocalPlayerTab:AddSlider({
+			Name = "Gravity",
+			Min = 0,
+			Max = 500,
+			Default = 200,
+			Increment = 1,
+			ValueName = "Gravity",
+			Color = Color3.fromRGB(242, 249, 148),
+			Callback = function(Value)
+				workspace.Gravity = Value
+			end
+		})
+		LocalPlayerTab:AddTextbox({
+			Name = "Teleport to player",
+			Default = "Player Name",
+			TextDisappear = true,
+			Callback = function(Value)
+				local function TPToPlayer()
+					HRP.CFrame = workspace[Value].HumanoidRootPart.CFrame
+				end
+				TPToPlayer()
+			end	  
+		})
+		
+		LocalPlayerTab:AddToggle({
+			Name = "NoClip",
+			Default = false,
+			Callback = function(Value)
+				_G.noclipValue = Value
+				noclipFunction()
 			end    
 		})
 		
-		-- Buttons
-		
+		-- ScriptsTab
+
 		ScriptsTab:AddButton({
-			Name = "Swagmode (If you own swagmode premium it will automatically apply)",
+			Name = "Swagmode",
 			Callback = function()
 				loadstring(game:HttpGet('https://raw.githubusercontent.com/lerkermer/lua-projects/master/SwagModeV002'))()
 			  end    
 		})
 
 		ScriptsTab:AddButton({
-			Name = "Faded (If you own faded premium it will automatically apply)",
+			Name = "Faded",
 			Callback = function()
 				_G.Toggles = "Z" -- You can put any keybind
 				loadstring(game:HttpGet("https://raw.githubusercontent.com/NighterEpic/Faded/main/YesEpic", true))()

@@ -1,3 +1,8 @@
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local Spawn = game.Players.LocalPlayer.SpawnCFrame
+local P = game:GetService'Players'
+local HRP = P.LocalPlayer.Character.HumanoidRootPart
+local Name = game.Players.LocalPlayer.Name
 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
 local PrisonLifeHub = OrionLib:MakeWindow({Name = "BloxxerHub | Prison Life", HidePremium = false, IntroText = "Team Bloxxer", IntroIcon = "rbxassetid://12022925290", Icon = "rbxassetid://12022925290", SaveConfig = true, ConfigFolder = "BloxxerConfig"})
     
@@ -56,35 +61,80 @@ local PrisonLifeHub = OrionLib:MakeWindow({Name = "BloxxerHub | Prison Life", Hi
         PremiumOnly = false
     })
     
-    -- Sliders
+    -- LocalPlayerTab
     
     LocalPlayerTab:AddSlider({
-        Name = "WalkSpeed",
-        Min = 16,
-        Max = 1000,
-        Default = 16,
-        Color = Color3.fromRGB(255,255,255),
+        Name = "Walkspeed",
+        Min = 0,
+        Max = 500,
+        Default = 15,
         Increment = 1,
         ValueName = "Walkspeed",
+        Color = Color3.fromRGB(63, 198, 255),
         Callback = function(Value)
-            game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = Value
-        end    
+            game:GetService('Workspace')[Name].Humanoid.WalkSpeed = Value
+        end
+    })
+    LocalPlayerTab:AddSlider({
+        Name = "JumpPower",
+        Min = 0,
+        Max = 500,
+        Default = 50,
+        Increment = 1,
+        ValueName = "JumpPower",
+        Color = Color3.fromRGB(31, 255, 23),
+        Callback = function(Value)
+            game:GetService('Workspace')[Name].Humanoid.JumpPower = Value
+        end 
     })
     
     LocalPlayerTab:AddSlider({
-        Name = "Jump Power",
-        Min = 50,
-        Max = 1000,
-        Default = 50,
-        Color = Color3.fromRGB(255,255,255),
+        Name = "HipHeight",
+        Min = 0,
+        Max = 500,
+        Default = 0,
         Increment = 1,
-        ValueName = "Jump Power",
+        ValueName = "HipHeight",
+        Color = Color3.fromRGB(253, 17, 17),
         Callback = function(Value)
-            game.Players.LocalPlayer.Character.Humanoid.JumpPower = Value
-        end    
+            game:GetService('Workspace')[Name].Humanoid.HipHeight = Value
+        end
+    })
+    LocalPlayerTab:AddSlider({
+        Name = "Gravity",
+        Min = 0,
+        Max = 500,
+        Default = 200,
+        Increment = 1,
+        ValueName = "Gravity",
+        Color = Color3.fromRGB(242, 249, 148),
+        Callback = function(Value)
+            workspace.Gravity = Value
+        end
+    })
+    LocalPlayerTab:AddTextbox({
+        Name = "Teleport to player",
+        Default = "Player Name",
+        TextDisappear = true,
+        Callback = function(Value)
+            local function TPToPlayer()
+                HRP.CFrame = workspace[Value].HumanoidRootPart.CFrame
+            end
+            TPToPlayer()
+        end	  
     })
     
-    -- Buttons
+    LocalPlayerTab:AddToggle({
+        Name = "NoClip",
+        Default = false,
+        Callback = function(Value)
+            _G.noclipValue = Value
+            noclipFunction()
+        end    
+    })
+
+
+    -- ScriptsTab
     
     ScriptsTab:AddButton({
         Name = "Infinite Yield",
@@ -140,17 +190,7 @@ local PrisonLifeHub = OrionLib:MakeWindow({Name = "BloxxerHub | Prison Life", Hi
         end    
     })
     
-    
-    -- Toggles
-    
-    LocalPlayerTab:AddToggle({
-        Name = "NoClip",
-        Default = false,
-        Callback = function(Value)
-            _G.noclipValue = Value
-            noclipFunction()
-        end    
-    })
+
 
     function discordnotification()
         syn.write_clipboard("https://discord.gg/Puy6SYbDC6")

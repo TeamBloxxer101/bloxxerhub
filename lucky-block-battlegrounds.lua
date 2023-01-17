@@ -223,15 +223,6 @@ Tab2:AddSlider({
 	end 
 })
 
-Tab2:AddToggle({
-    Name = "NoClip",
-    Default = false,
-    Callback = function(Value)
-        _G.noclipValue = Value
-        noclipFunction()
-    end    
-})
-
 Tab2:AddSlider({
 	Name = "HipHeight",
 	Min = 0,
@@ -267,6 +258,16 @@ Tab2:AddTextbox({
         TPToPlayer()
 	end	  
 })
+
+Tab2:AddToggle({
+    Name = "NoClip",
+    Default = false,
+    Callback = function(Value)
+        _G.noclipValue = Value
+        noclipFunction()
+    end    
+})
+
 Tab2:AddButton({
 	Name = "Teleport to VoidBlock",
 	Callback = function()
