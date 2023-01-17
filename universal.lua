@@ -156,6 +156,4 @@ ScriptsTab:AddButton({
 wait(5)
 discordnotification()
 
--- Toggles
-
 OrionLib:Init()

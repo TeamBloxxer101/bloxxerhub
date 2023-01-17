@@ -206,5 +206,4 @@ local PrisonLifeHub = OrionLib:MakeWindow({Name = "BloxxerHub | Prison Life", Hi
         wait(5)
         discordnotification()
 
-    -- TextBox
     OrionLib:Init()

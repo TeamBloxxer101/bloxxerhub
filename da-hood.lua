@@ -169,19 +169,6 @@
 				loadstring(game:HttpGet("https://raw.githubusercontent.com/NighterEpic/Faded/main/YesEpic", true))()
 			  end    
 		})
-		
-		-- Toggles
-		
-		LocalPlayerTab:AddToggle({
-			Name = "NoClip",
-			Default = false,
-			Callback = function(Value)
-				_G.noclipValue = Value
-				noclipFunction()
-			end    
-		})
-
-		-- TextBox		
 
 
 		wait(5)
