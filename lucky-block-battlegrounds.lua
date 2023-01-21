@@ -1,7 +1,7 @@
 local Name = game.Players.LocalPlayer.Name
 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
 local Spawn = game.Players.LocalPlayer.SpawnCFrame
-local Window = OrionLib:MakeWindow({Name = "BloxxerHub | Lucky Block Battlegrounds"})
+local Window = OrionLib:MakeWindow({Name = "BloxxerHub | Lucky Block Battlegrounds", IntroText = "Team Bloxxer", IntroIcon = "rbxassetid://12022925290", Icon = "rbxassetid://12022925290", SaveConfig = true, ConfigFolder = "BloxxerConfig"})
 local P = game:GetService'Players'
 local HRP = P.LocalPlayer.Character.HumanoidRootPart
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
@@ -261,6 +261,16 @@ Tab2:AddSlider({
 		workspace.Gravity = Value
 	end
 })
+
+Tab2:AddToggle({
+    Name = "NoClip",
+    Default = false,
+    Callback = function(Value)
+        _G.noclipValue = Value
+        noclipFunction()
+    end    
+})
+
 Tab2:AddTextbox({
 	Name = "Teleport to player",
 	Default = "Player Name",
@@ -271,15 +281,6 @@ Tab2:AddTextbox({
         end
         TPToPlayer()
 	end	  
-})
-
-Tab2:AddToggle({
-    Name = "NoClip",
-    Default = false,
-    Callback = function(Value)
-        _G.noclipValue = Value
-        noclipFunction()
-    end    
 })
 
 Tab2:AddButton({
